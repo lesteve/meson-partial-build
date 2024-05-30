@@ -5,14 +5,12 @@ lib_pyx = custom_target(
   output: 'lib.pyx',
   input: 'lib.pyx.in',
   command: [py, tempita, '@INPUT@', '-o', '@OUTDIR@'],
+  depends: [lib_cython_tree, root_cython_tree, utils_cython_tree]
 )
 
 py.extension_module(
   'lib',
   lib_pyx,
-  lib_cython_tree,
-  root_cython_tree,
-  utils_cython_tree,
   cython_args: cython_args,
   install: true,
   subdir: 'package/lib',
