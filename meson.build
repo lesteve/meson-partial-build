@@ -16,4 +16,6 @@ py = import('python').find_installation(pure: false)
 
 cython_args = ['--include-dir', meson.global_build_root()]
 
+tempita = files('tempita.py')
+
 subdir('package')
